@@ -1,4 +1,4 @@
-#!/home/ikkifik/programming/python-project/yeongsil/venv/bin/python3
+#!/home/ikkifik/CS/python-project/yeongsil/venv/bin/python3
 # -*- coding: utf-8 -*-
 import re
 import sys
