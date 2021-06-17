@@ -15,13 +15,13 @@ def record_audio(ask=False):
     with mic as source:
         if ask:
             speak(ask)
-        r.adjust_for_ambient_noise(source, duration=0.5)
+        r.adjust_for_ambient_noise(source, duration=0.7)
         audio = r.listen(source)
         voice_data = ''
         try:
             voice_data = r.recognize_google(audio, language="ko")
         except sr.UnknownValueError :
-            speak("Sorry i didn't recognize that")
+            speak("인식하지 못해서 죄송합니다")
         return voice_data
 
 def respond(voice_data):
@@ -34,7 +34,7 @@ def respond(voice_data):
         url = f"https://www.google.com/search?q={search}"
         webbrowser.get().open(url)
         speak("내가 찾은 내용은 다음과 같습니다. " + search)
-    if "go to somewhere" in voice_data: # still looking for the best words
+    if "나는 어딘가에 가고 싶다" in voice_data:
         search = record_audio("어디 가요?")
         url = f"https://www.google.co.id/maps/search/{search}"
         webbrowser.get().open(url)
